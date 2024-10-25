@@ -1,0 +1,50 @@
+// Crear autómatas para formar un doble anillo
+crear_automata 1;  // Anillo interior - norte
+crear_automata 2;  // Anillo interior - sur
+crear_automata 3;  // Anillo interior - este
+crear_automata 4;  // Anillo interior - oeste
+crear_automata 5;  // Anillo exterior - norte
+crear_automata 6;  // Anillo exterior - sur
+crear_automata 7;  // Anillo exterior - este
+crear_automata 8;  // Anillo exterior - oeste
+
+// Crear celdas en cada autómata
+crear_celda 1 1 1 2;  // Anillo interior - norte, inicial infectado
+crear_celda 1 1 2 0;
+
+crear_celda 2 3 1 0;  // Anillo interior - sur
+crear_celda 2 3 2 0;
+
+crear_celda 3 2 3 0;  // Anillo interior - este
+crear_celda 3 1 3 0;
+
+crear_celda 4 2 0 0;  // Anillo interior - oeste
+crear_celda 4 1 0 0;
+
+crear_celda 5 0 1 0;  // Anillo exterior - norte
+crear_celda 5 0 2 0;
+
+crear_celda 6 4 1 0;  // Anillo exterior - sur
+crear_celda 6 4 2 0;
+
+crear_celda 7 2 4 0;  // Anillo exterior - este
+crear_celda 7 1 4 0;
+
+crear_celda 8 2 0 0;  // Anillo exterior - oeste
+crear_celda 8 1 0 0;
+
+// Definir vecinos en cada anillo
+definir_vecino 1 1 1 1 2;
+definir_vecino 6 4 1 4 2;
+
+// Conectar los anillos interior y exterior
+conectar_automatas 1 5 1 1 0 1;  // Conexión norte
+conectar_automatas 2 6 3 1 4 1;  // Conexión sur
+conectar_automatas 3 7 1 3 1 4;  // Conexión este
+conectar_automatas 4 8 2 0 2 0; // Conexión oeste
+
+// Ajustar tasas de contagio y recuperación
+ajustar_tasas 0.7 0.2;
+
+// Avanzar en la simulación con tránsito permitido
+avanzar_paso 15 1;

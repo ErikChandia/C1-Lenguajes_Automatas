@@ -1,0 +1,47 @@
+// Crear autómatas que forman un laberinto
+crear_automata 1;  // Entrada del laberinto
+crear_automata 2;  // Camino hacia el centro
+crear_automata 3;  // Centro del laberinto
+crear_automata 4;  // Camino hacia la salida
+crear_automata 5;  // Salida del laberinto
+crear_automata 6;  // Camino lateral izquierdo
+crear_automata 7;  // Camino lateral derecho
+
+// Crear celdas en cada autómata
+crear_celda 1 0 0 0;  // Entrada del laberinto
+crear_celda 1 0 1 2;
+
+crear_celda 2 1 1 0;  // Camino hacia el centro
+crear_celda 2 2 1 0;
+
+crear_celda 3 3 2 0;  // Centro del laberinto
+crear_celda 3 3 3 0;
+crear_celda 3 3 4 0;
+
+crear_celda 4 4 3 0;  // Camino hacia la salida
+crear_celda 4 5 3 0;
+
+crear_celda 5 6 4 0;  // Salida del laberinto
+
+crear_celda 6 2 0 0;  // Camino lateral izquierdo
+crear_celda 6 2 -1 0;
+
+crear_celda 7 4 4 0;  // Camino lateral derecho
+crear_celda 7 5 4 0;
+
+// Definir vecinos en caminos
+definir_vecino 3 3 2 3 3;  // Vecino dentro del centro del laberinto
+
+// Conectar caminos del laberinto
+conectar_automatas 1 2 0 1 1 1;  // Entrada al camino hacia el centro
+conectar_automatas 2 3 2 1 3 2;  // Camino hacia el centro del laberinto
+conectar_automatas 3 4 3 3 4 3;  // Camino del centro hacia la salida
+conectar_automatas 4 5 5 3 6 4;  // Camino hacia la salida del laberinto
+conectar_automatas 2 6 2 1 2 0;  // Camino lateral izquierdo
+conectar_automatas 3 7 3 4 4 4;  // Camino lateral derecho
+
+// Ajustar tasas de contagio y recuperación
+ajustar_tasas 0.9 0.1;
+
+// Avanzar en la simulación con tránsito permitido
+avanzar_paso 20 1;

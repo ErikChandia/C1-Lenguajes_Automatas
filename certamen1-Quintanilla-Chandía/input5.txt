@@ -1,0 +1,40 @@
+// Crear autómatas en forma de cruz
+crear_automata 1;  // Autómata central
+crear_automata 2;  // Autómata al norte
+crear_automata 3;  // Autómata al sur
+crear_automata 4;  // Autómata al este
+crear_automata 5;  // Autómata al oeste
+
+// Crear celdas en cada autómata
+crear_celda 1 1 1 2;  // Autómata central
+crear_celda 1 1 2 0;
+crear_celda 1 2 1 0;
+crear_celda 1 2 2 0;
+
+crear_celda 2 0 1 0;  // Autómata norte
+crear_celda 2 0 2 0;
+
+crear_celda 3 3 1 0;  // Autómata sur
+crear_celda 3 3 2 0;
+
+crear_celda 4 1 3 0;  // Autómata este
+crear_celda 4 2 3 0;
+
+crear_celda 5 1 0 0;  // Autómata oeste
+crear_celda 5 2 0 0;
+
+// Definir vecinos en cada autómata
+definir_vecino 1 1 1 1 2;
+definir_vecino 3 3 1 3 2;
+
+// Conectar autómatas en forma de cruz
+conectar_automatas 1 2 1 2 0 1;  // Conectar autómata central con norte
+conectar_automatas 1 3 2 1 3 1;  // Conectar autómata central con sur
+conectar_automatas 1 4 2 2 1 3;  // Conectar autómata central con este
+conectar_automatas 1 5 1 1 1 0;  // Conectar autómata central con oeste
+
+// Ajustar tasas de contagio y recuperación
+ajustar_tasas 0.6 0.4;
+
+// Avanzar en la simulación con tránsito permitido
+avanzar_paso 12 1;

@@ -1,0 +1,58 @@
+// Crear autómatas para cada región de la figura
+crear_automata 1;
+crear_automata 2;
+crear_automata 3;
+crear_automata 4;
+crear_automata 5;
+crear_automata 6;
+crear_automata 7;
+
+// Crear celdas en cada autómata (indicando las posiciones y el estado inicial de cada celda)
+crear_celda 1 0 0 2;  // Región superior izquierda
+crear_celda 1 0 1 2;  // Celda infectada adicional
+crear_celda 1 1 0 0;
+crear_celda 1 1 1 0;
+
+crear_celda 2 2 0 0;  // Región adyacente a la derecha
+crear_celda 2 2 1 2;  // Celda infectada adicional
+
+crear_celda 3 3 0 0;  // Región central
+crear_celda 3 3 1 0;
+crear_celda 3 4 0 0;
+crear_celda 3 4 1 2;  // Celda infectada adicional
+
+crear_celda 4 0 2 0;  // Región central izquierda
+crear_celda 4 1 2 0;
+crear_celda 4 2 2 0;
+crear_celda 4 3 2 0;
+
+crear_celda 5 2 3 0;  // Región inferior izquierda
+crear_celda 5 3 3 2;  // Celda infectada adicional
+crear_celda 5 4 3 0;
+
+crear_celda 6 3 4 0;  // Región inferior derecha
+crear_celda 6 4 4 0;
+
+crear_celda 7 1 4 0;  // Región superior derecha
+crear_celda 7 2 4 0;
+
+// Definir vecinos dentro de cada región/autómata (si es necesario)
+definir_vecino 1 0 0 0 1;  // Vecino dentro de la primera región
+definir_vecino 1 1 0 1 1;
+
+definir_vecino 3 3 0 3 1;  // Vecino dentro de la región central
+definir_vecino 3 4 0 4 1;
+
+// Conectar regiones/autómatas mediante celdas específicas
+conectar_automatas 1 4 1 1 0 2;  // Conexión entre la primera región y la región central izquierda
+conectar_automatas 3 5 3 1 2 3;  // Conexión entre la región central y la región inferior izquierda
+conectar_automatas 3 7 4 1 2 4;  // Conexión entre la región central y la región superior derecha
+conectar_automatas 2 3 2 1 3 0;  // Conexión entre la región adyacente derecha y la región central
+conectar_automatas 4 5 2 2 2 3;  // Conexión entre la región central izquierda y la región inferior izquierda
+conectar_automatas 6 5 3 4 4 3;  // Conexión entre la región inferior derecha y la región inferior izquierda
+
+// Ajustar las tasas de contagio y recuperación (80% y 30%)
+ajustar_tasas 0.8 0.3;
+
+// Avanzar en la simulación con tránsito permitido
+avanzar_paso 10 1;

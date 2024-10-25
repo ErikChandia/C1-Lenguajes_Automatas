@@ -1,0 +1,72 @@
+[
+{
+"id": 1,
+"celdas": [
+{"x": 0, "y": 0, "estado": 0},
+{"x": 0, "y": 1, "estado": 3}
+],
+"conexiones": [
+{"inicio": [0, 1], "fin": [1, 1]}
+]
+},
+{
+"id": 2,
+"celdas": [
+{"x": 1, "y": 1, "estado": 0},
+{"x": 2, "y": 1, "estado": 2}
+],
+"conexiones": [
+{"inicio": [2, 1], "fin": [3, 2]},
+{"inicio": [2, 1], "fin": [2, 0]}
+]
+},
+{
+"id": 3,
+"celdas": [
+{"x": 3, "y": 2, "estado": 1},
+{"x": 3, "y": 3, "estado": 2},
+{"x": 3, "y": 4, "estado": 0}
+],
+"conexiones": [
+{"inicio": [3, 2], "fin": [3, 3]},
+{"inicio": [3, 3], "fin": [4, 3]},
+{"inicio": [3, 4], "fin": [4, 4]}
+]
+},
+{
+"id": 4,
+"celdas": [
+{"x": 4, "y": 3, "estado": 0},
+{"x": 5, "y": 3, "estado": 0}
+],
+"conexiones": [
+{"inicio": [5, 3], "fin": [6, 4]}
+]
+},
+{
+"id": 5,
+"celdas": [
+{"x": 6, "y": 4, "estado": 0}
+],
+"conexiones": [
+]
+},
+{
+"id": 6,
+"celdas": [
+{"x": 2, "y": 0, "estado": 2},
+{"x": 2, "y": 1, "estado": 0}
+],
+"conexiones": [
+]
+},
+{
+"id": 7,
+"celdas": [
+{"x": 4, "y": 4, "estado": 0},
+{"x": 5, "y": 4, "estado": 2}
+],
+"conexiones": [
+]
+}
+]

@@ -1,0 +1,21 @@
+// Crear dos autómatas con pocas celdas
+crear_automata 1;
+crear_automata 2;
+
+// Crear celdas en ambos autómatas
+crear_celda 1 1 1 2;  // Celda en automata 1, posición (1, 1), estado inicial Infectado
+crear_celda 1 1 2 0;  // Celda en automata 1, posición (1, 2), estado inicial Susceptible
+crear_celda 2 3 3 0;  // Celda en automata 2, posición (3, 3), estado inicial Susceptible
+
+// Definir vecinos dentro de cada autómata
+definir_vecino 1 1 1 1 2;
+definir_vecino 2 3 3 3 4;
+
+// Conectar autómatas mediante celdas específicas
+conectar_automatas 1 2 1 2 3 3;
+
+// Ajustar las tasas de contagio (10%) y recuperación (80%)
+ajustar_tasas 0.1 0.8;
+
+// Avanzar en la simulación con tránsito permitido
+avanzar_paso 5 1;
